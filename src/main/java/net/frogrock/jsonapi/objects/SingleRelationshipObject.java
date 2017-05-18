@@ -1,5 +1,7 @@
 package net.frogrock.jsonapi.objects;
 
+import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
+
 /**
  * <p>
  * Represents a JSON API "relationship object," as defined in <a href=
@@ -11,6 +13,7 @@ package net.frogrock.jsonapi.objects;
  * @author alex
  *
  */
+@JsonDeserialize(as = SingleRelationshipObject.class)
 public class SingleRelationshipObject extends RelationshipObject {
 
 	private ResourceIdentifier data;

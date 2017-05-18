@@ -86,7 +86,7 @@ final class Decoder<T> {
         try {
             relationships = new ArrayList<>();
             includedMap = this.extractIncludedResources(source);
-            System.out.println(includedMap);
+
             T result = this.parseResourceObject(source.getData(), metadata.forClass(destination));
 
             relationships.forEach(RelationshipResolver::resolve);

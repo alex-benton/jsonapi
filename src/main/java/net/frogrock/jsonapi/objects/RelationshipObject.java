@@ -2,6 +2,10 @@ package net.frogrock.jsonapi.objects;
 
 import java.util.Map;
 
+import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
+
+import net.frogrock.jsonapi.util.RelationshipDeserializer;
+
 /**
  *
  * <p>
@@ -31,61 +35,61 @@ import java.util.Map;
  * @author abenton
  *
  */
+@JsonDeserialize(using = RelationshipDeserializer.class)
 public abstract class RelationshipObject {
 
-	// the specification also supports "link objects", which can also contain
-	// meta information. for now, this is not supported.
-	private Map<String, String> links;
+    // the specification also supports "link objects", which can also contain
+    // meta information. for now, this is not supported.
+    private Map<String, String> links;
 
-	// the meta object can contain unstructured key/value pairs.
-	private Map<String, ?> meta;
+    // the meta object can contain unstructured key/value pairs.
+    private Map<String, ?> meta;
 
-	/**
-	 * @return the links
-	 */
-	public Map<String, String> getLinks() {
-		return links;
-	}
+    /**
+     * @return the links
+     */
+    public Map<String, String> getLinks() {
+        return links;
+    }
 
-	/**
-	 * @param links
-	 *            the links to set
-	 */
-	public void setLinks(Map<String, String> links) {
-		this.links = links;
-	}
+    /**
+     * @param links
+     *            the links to set
+     */
+    public void setLinks(Map<String, String> links) {
+        this.links = links;
+    }
 
-	/**
-	 * @return the meta
-	 */
-	public Map<String, ?> getMeta() {
-		return meta;
-	}
+    /**
+     * @return the meta
+     */
+    public Map<String, ?> getMeta() {
+        return meta;
+    }
 
-	/**
-	 * @param meta
-	 *            the meta to set
-	 */
-	public void setMeta(Map<String, ?> meta) {
-		this.meta = meta;
-	}
+    /**
+     * @param meta
+     *            the meta to set
+     */
+    public void setMeta(Map<String, ?> meta) {
+        this.meta = meta;
+    }
 
-
-	/*
-	 * (non-Javadoc)
-	 * 
-	 * @see java.lang.Object#toString()
-	 */
-	@Override
-	public String toString() {
-		StringBuilder builder = new StringBuilder();
-		builder.append("RelationshipObject [");
-		if (links != null)
-			builder.append("links=").append(links).append(", ");
-		if (meta != null)
-			builder.append("meta=").append(meta).append(", ");
-		builder.append("]");
-		return builder.toString();
-	}
+    /*
+     * (non-Javadoc)
+     * 
+     * @see java.lang.Object#toString()
+     */
+    @Override
+    public String toString() {
+        StringBuilder builder = new StringBuilder();
+        builder.append("RelationshipObject [");
+        if (links != null)
+            builder.append("links=").append(links).append(", ");
+        if (meta != null)
+            builder.append("meta=").append(meta).append(", ");
+        builder.append("]");
+        return builder.toString();
+    }
 
 }
